@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#test1{
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+
+.cls1{
+    background-color: green;
+}
+
+.cls1 {
+    background-color: yellow;
+}
+
+div {
+    width: 200px;
+    height: 200px;
+    background-color: red !important;
+}

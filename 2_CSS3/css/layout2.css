@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.border {
+    border: 10px solid black;
+}
+
+.padding {
+    padding: 30px;
+}
+
+.margin {
+    margin: 50px;
+}
+
+#m1 {
+    margin: 100px;
+}
+
+#box-sizing {
+    border: 10px solid black;
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.padding-test{
+    padding : 50px 100px;
+}
+
+.border-test{
+    border-top: 5px solid black;
+    border-left: 10px dashed pink;
+    border-right: 5px ridge green;
+    border-bottom: 5px dashed yellow;
+}
+.box-container{
+    width: 500px;    
+    border : 1px solid black;
+}
+
+.margin-auto{
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}

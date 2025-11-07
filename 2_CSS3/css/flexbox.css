@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+div{
+    border : 1px solid black;
+    box-sizing: border-box;
+/* content + padding + border 합으로 width/height 지정 */
+}
+
+.item{
+width: 75px;
+height: 75px;
+}
+
+.item1{background-color: red;}
+.item2{background-color: orangered;}
+.item3{background-color: orange;}
+.item4{background-color: yellow;}
+.item5{background-color: yellowgreen;}
+.item6{background-color: green;}
+.item7{background-color: lightblue;}
+.item8{background-color: blue;}
+.item9{background-color: violet;}
+
+.flex-container{
+    display: flex;
+    height: 800px;
+}
+
+#con{
+    width: 400px;
+    height: 400px;
+
+    display: flex;
+    /* 메인축 정렬 */
+    justify-content: center;
+    /* 교차축 정렬 */
+    align-items: center;
+}
+
+#item-center {
+    width: 80px;
+    height: 80px;
+    background-color: red;
+}
+
+.basis-20{
+    flex-basis: 20%;
+}
+
+.basis-30{
+    flex-basis: 30%;
+}
+
+.basis-50{
+    flex-basis: 50%;
+}
+
+.grow1{
+    flex-grow: 3;
+}
+
+.grow2{
+    flex-grow: 2;
+}
+
+.grow3{
+    flex-grow: 1;
+}
+
+.shrink1{
+    flex-shrink: 0;
+}
+
+.shrink2{
+    flex-shrink: 1;
+}
+
+.shrink3{
+    flex-shrink: 2;
+}
+
+.flex-test1{
+    flex:1;
+}
+
+.flex-test2{
+    flex:1 0 auto;
+}
+
+.order:nth-child(1){
+    order: 3;
+}
+
+.order:nth-child(2){
+    order: -2;
+}
+
+.order:nth-child(3){
+    order: 5;
+}

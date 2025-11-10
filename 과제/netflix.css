@@ -9,6 +9,9 @@
 
 body{
     background-image: url(/04_webfront/images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 main{

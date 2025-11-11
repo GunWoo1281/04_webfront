@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+  
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    width: 1100px;
+    background: linear-gradient(to right, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);
+}
+
+header{
+    float: left;
+    width: 1000px;
+    height: 270px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-area{
+    width: 300px;
+    float: left;
+}
+
+.profile{
+    border: 2px solid black;
+    margin-top: 5px;
+    margin-bottom: -10px;
+    margin-left: 25px;
+}
+
+.my-skill{
+    list-style: none;
+}
+
+main {
+    float: left;
+    width: 1000px;
+    height: 950px;
+    background-color: #ffd6d6;
+}
+
+#my-career{
+    background-color: #f9f9f959;
+    height: 300px;
+}
+
+.my-career{
+    height: 190px;
+}
+
+main h1{
+    text-align: center;
+}
+
+main table{
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+main td, main th {
+    padding: 7px;
+    border: 2px solid black;
+}
+
+.space {
+    float: left;
+    padding: 5px;
+}
+
+.space:first-of-type{
+    margin-left: 30px;
+}
+
+.introduce-myself{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.introduce-myself span{
+    line-height: 35px;
+}
+
+
+footer{
+    float: left;
+    width: 1000px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.488);
+}
+#contact-me{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#contact-me input:first-of-type{
+    width: 100px;
+}
+
+#contact-me input{
+    background-color: transparent;
+    border: 2px dashed black;
+    margin-top: 10px;
+    height: 30px;
+}
+
+#contact-me button{
+    background-color: transparent;
+    border: 3px dashed black;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.sidebar-area{
+    float: left;
+    width: 100px;
+    height: 1290px;
+}
+
+.sidebar{
+    width: 80px;
+    height: 480px;
+    margin-top: 30px;
+    background-color: #ffd6d6;
+    text-align: center;
+    border-radius: 15px;
+    position: sticky;
+    top:130px;
+}
+
+.sidebar > p{
+    font-size: 20px;
+}
+
+.sidebar div{
+    height: 50px;
+    border: 3px dashed rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-top: 20px;
+    line-height: 45px;
+    font-weight: bold;
+}
+
+.sidebar div:hover{
+    background-color: #ff9a9e;
+}
+
+.sidebar > a{
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar-gif {
+    margin-top: 10px;
+}

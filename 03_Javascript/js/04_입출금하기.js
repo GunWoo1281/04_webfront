@@ -38,4 +38,7 @@ function getmoney(){
         alert("금액부터 입력하세요");
         return false;
     }
+    else{
+        return true;
+    }
 }

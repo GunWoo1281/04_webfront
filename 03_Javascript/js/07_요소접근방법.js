@@ -34,5 +34,14 @@ function cssTest(){
 }
 
 function readValue(){
-
+    if(document.getElementById("user-input").value.trim() !=''){
+        document.getElementById("chatting-bg").insertAdjacentHTML('beforeend','<p><span>'+ document.getElementById("user-input").value+ '</span></p>');
+        document.getElementById("chatting-bg").scrollTop = document.getElementById("chatting-bg").scrollHeight;
+    }
+    else{
+        alert("채팅내용을 입력해주세요.")
+        document.getElementById("user-input").value="";
+        document.getElementById("user-input").focus();
+        return;
+    }
 }

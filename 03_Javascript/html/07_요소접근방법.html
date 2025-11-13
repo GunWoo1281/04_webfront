@@ -154,7 +154,7 @@
 
 
         <div id="chatting-input">
-        <input type="text" id="user-input">
+        <input type="text" id="user-input" onkeydown="javascript:if(event.keyCode==13){readValue();return false;}">
         <button onclick="readValue()">입력</button>
         </div>
     </div>

@@ -1,3 +1,19 @@
+function check1(btn) {
+    console.log(btn);
+    // 매개변수 btn == 클릭한 버튼(this)
+  
+    // 현재 버튼의 배경색을 얻어와 저장
+    const bgColor = btn.style.backgroundColor;
+  
+    // 버튼이 클릭 될 때마다 yellow <-> pink 변경
+    if(bgColor == "yellow") {
+      btn.style.backgroundColor = "pink";
+    } else {
+      btn.style.backgroundColor = "yellow";
+    }
+  
+  }
+
 const test1a = document.querySelector("#test1-1");
 
 test1a.onclick = function() {

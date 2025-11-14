@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript 호이스팅 예제</title>
+  <style>
+    body {
+      font-family: 'Malgun Gothic', sans-serif;
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #2c3e50;
+      border-bottom: 3px solid #3498db;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 30px;
+    }
+    pre {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    code {
+      background-color: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+    .example {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .note {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    .warning {
+      background-color: #f8d7da;
+      border-left: 4px solid #dc3545;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    .success {
+      background-color: #d4edda;
+      border-left: 4px solid #28a745;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    #console {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      min-height: 200px;
+      max-height: 500px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      margin-top: 20px;
+    }
+    .console-line {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 JavaScript 호이스팅(Hoisting) 완전 정복</h1>
+
+  <div class="note">
+    <strong>📌 호이스팅이란?</strong><br>
+    JavaScript에서 변수 선언과 함수 선언이 <strong>스코프의 최상단으로 끌어올려지는 것처럼</strong> 동작하는 현상입니다.
+    실제로 코드가 이동하는 것은 아니고, JavaScript 엔진이 실행 전에 메모리 공간을 먼저 확보하는 것입니다.
+  </div>
+
+  <h2>1️⃣ var의 호이스팅</h2>
+  <div class="example">
+    <pre><code>console.log(x); // undefined (에러가 발생하지 않음!)
+var x = 10;
+console.log(x); // 10</code></pre>
+    
+    <div class="note">
+      <strong>특징:</strong>
+      <ul>
+        <li>변수 선언이 스코프 최상단으로 끌어올려짐</li>
+        <li>선언은 호이스팅되지만, 초기화(할당)는 호이스팅되지 않음</li>
+        <li>선언 전 접근 시 <code>undefined</code> 반환 (에러 없음)</li>
+      </ul>
+    </div>
+
+    <div class="warning">
+      <strong>⚠️ 실제 동작 방식:</strong><br>
+      <pre><code>var x;              // 선언이 스코프 최상단으로 끌어올려짐 (undefined)
+console.log(x);     // undefined 출력
+x = 10;             // 실제 할당이 이 위치에서 이루어짐
+console.log(x);     // 10 출력</code></pre>
+    </div>
+  </div>
+
+  <h2>2️⃣ let과 const의 호이스팅</h2>
+  <div class="example">
+    <div class="note">
+      <strong>중요한 사실:</strong> <code>let</code>과 <code>const</code>도 호이스팅됩니다!<br>
+      하지만 <code>var</code>와 다르게 동작합니다.
+    </div>
+
+    <pre><code>// console.log(y); // ❌ ReferenceError 발생!
+let y = 20;</code></pre>
+
+    <div class="success">
+      <strong>✅ TDZ (Temporal Dead Zone) - 일시적 사각지대</strong>
+      <ul>
+        <li>변수 선언은 호이스팅되지만, 초기화 전까지 접근할 수 없는 구간</li>
+        <li><code>let</code>과 <code>const</code>만 TDZ의 영향을 받음</li>
+        <li>선언 전에 접근하면 <code>ReferenceError</code> 발생</li>
+      </ul>
+    </div>
+
+    <pre><code>let y;             // 선언만 함 (undefined로 초기화됨)
+console.log(y);    // undefined (이제 접근 가능)
+
+y = 20;            // 할당
+console.log(y);    // 20
+
+// const는 반드시 선언과 동시에 초기화해야 함
+const z = 30;
+console.log(z);    // 30</code></pre>
+  </div>
+
+  <h2>3️⃣ 함수 호이스팅</h2>
+  <div class="example">
+    <h3>함수 선언문 (Function Declaration)</h3>
+    <pre><code>sayHello(); // ✅ 정상 동작! (선언 전에 호출 가능)
+
+function sayHello() {
+    console.log("안녕하세요!");
+}</code></pre>
+
+    <div class="success">
+      <strong>함수 선언문은 완전히 호이스팅됩니다!</strong><br>
+      선언과 동시에 함수 전체가 호이스팅되어 어디서든 호출 가능합니다.
+    </div>
+
+    <h3>함수 표현식 (Function Expression)</h3>
+    <pre><code>// sayGoodbye(); // ❌ TypeError 발생!
+
+var sayGoodbye = function() {
+    console.log("안녕히 가세요!");
+};
+
+sayGoodbye(); // ✅ 정상 동작</code></pre>
+
+    <div class="warning">
+      <strong>함수 표현식은 변수 호이스팅 규칙을 따릅니다.</strong><br>
+      <ul>
+        <li><code>var</code>로 선언: <code>undefined</code>로 호이스팅</li>
+        <li><code>let/const</code>로 선언: TDZ에 있어 접근 불가</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>4️⃣ var vs let vs const 비교표</h2>
+  <div class="example">
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="background-color: #3498db; color: white;">
+        <th style="padding: 10px; border: 1px solid #ddd;">특징</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">var</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">let</th>
+        <th style="padding: 10px; border: 1px solid #ddd;">const</th>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">호이스팅</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">✅ 됨</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">✅ 됨</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">✅ 됨</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">선언 전 접근</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">undefined 반환</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">ReferenceError</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">ReferenceError</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">스코프</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">함수 스코프</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">블록 스코프</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">블록 스코프</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">재선언</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">✅ 가능</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">❌ 불가</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">❌ 불가</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd;">재할당</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">✅ 가능</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">✅ 가능</td>
+        <td style="padding: 10px; border: 1px solid #ddd;">❌ 불가</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>5️⃣ 실제 예제: for 루프에서의 차이</h2>
+  <div class="example">
+    <h3>❌ var 사용 시 (문제 발생)</h3>
+    <pre><code>for (var i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log("i:", i); // 모두 3이 출력됨
+    }, 100);
+}</code></pre>
+
+    <div class="warning">
+      <strong>문제점:</strong> <code>var</code>는 함수 스코프이므로, 루프가 끝난 후의 <code>i</code> 값(3)을 참조합니다.
+    </div>
+
+    <h3>✅ let 사용 시 (올바른 동작)</h3>
+    <pre><code>for (let j = 0; j < 3; j++) {
+    setTimeout(function() {
+        console.log("j:", j); // 0, 1, 2가 출력됨
+    }, 100);
+}</code></pre>
+
+    <div class="success">
+      <strong>해결책:</strong> <code>let</code>은 블록 스코프이므로, 각 루프 반복마다 새로운 <code>j</code> 변수가 생성됩니다.
+    </div>
+  </div>
+
+  <h2>6️⃣ 호이스팅 우선순위</h2>
+  <div class="example">
+    <ol>
+      <li><strong>함수 선언문</strong> - 가장 먼저 호이스팅 (함수 전체)</li>
+      <li><strong>var 변수 선언</strong> - undefined로 초기화되어 호이스팅</li>
+      <li><strong>let/const 변수 선언</strong> - TDZ에 있음 (선언은 호이스팅되지만 접근 불가)</li>
+      <li><strong>함수 표현식</strong> - 변수 호이스팅 규칙 따름</li>
+    </ol>
+  </div>
+
+  <h2>7️⃣ 실전 코드 실행</h2>
+  <div class="example">
+    <button onclick="runExamples()">예제 코드 실행하기</button>
+    <button onclick="clearConsole()">콘솔 지우기</button>
+    <div id="console"></div>
+  </div>
+
+  <h2>8️⃣ 정리</h2>
+  <div class="example">
+    <div class="success">
+      <strong>✅ 핵심 요약:</strong>
+      <ul>
+        <li>모든 변수 선언(var, let, const)은 호이스팅됩니다</li>
+        <li><code>var</code>: 선언 전 접근 시 <code>undefined</code> 반환</li>
+        <li><code>let/const</code>: 선언 전 접근 시 <code>ReferenceError</code> 발생 (TDZ)</li>
+        <li>함수 선언문은 완전히 호이스팅되어 어디서든 호출 가능</li>
+        <li>함수 표현식은 변수 호이스팅 규칙을 따름</li>
+        <li><strong>모던 JavaScript에서는 var 대신 let/const 사용을 권장합니다!</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const consoleDiv = document.getElementById('console');
+    
+    function log(message) {
+      const line = document.createElement('div');
+      line.className = 'console-line';
+      line.textContent = message;
+      consoleDiv.appendChild(line);
+      console.log(message);
+      consoleDiv.scrollTop = consoleDiv.scrollHeight;
+    }
+
+    function clearConsole() {
+      consoleDiv.innerHTML = '';
+      console.clear();
+      log('콘솔이 지워졌습니다.');
+    }
+
+    function runExamples() {
+      clearConsole();
+      log('========== 호이스팅 예제 실행 ==========\n');
+      
+      // 1. var 호이스팅
+      log('--- 1. var의 호이스팅 ---');
+      try {
+        log('x의 값: ' + typeof x !== 'undefined' ? x : 'undefined');
+        var x = 10;
+        log('x의 값: ' + x);
+      } catch (e) {
+        log('에러: ' + e.message);
+      }
+      
+      log('\n--- 2. let의 호이스팅 (TDZ) ---');
+      try {
+        // let y가 선언되기 전에 접근 시도
+        log('y 접근 시도 중...');
+        if (typeof y === 'undefined') {
+          let y = 20;
+          log('y 선언 및 초기화: ' + y);
+        }
+      } catch (e) {
+        log('에러: ' + e.message);
+      }
+      
+      log('\n--- 3. 함수 선언문 호이스팅 ---');
+      log(hoistedFunc()); // 선언 전에 호출 가능
+      
+      function hoistedFunc() {
+        return '함수 선언문이 호이스팅되었습니다!';
+      }
+      
+      log('\n--- 4. 함수 표현식 (var) ---');
+      try {
+        log('sayHello 타입: ' + typeof sayHello);
+        var sayHello = function() {
+          return '함수 표현식입니다.';
+        };
+        log(sayHello());
+      } catch (e) {
+        log('에러: ' + e.message);
+      }
+      
+      log('\n--- 5. for 루프에서의 차이 ---');
+      log('var 사용 시:');
+      for (var i = 0; i < 3; i++) {
+        setTimeout(function() {
+          log('var i: ' + i);
+        }, 100 * (i + 1));
+      }
+      
+      setTimeout(() => {
+        log('\nlet 사용 시:');
+        for (let j = 0; j < 3; j++) {
+          setTimeout(function() {
+            log('let j: ' + j);
+          }, 100 * (j + 1) + 500);
+        }
+      }, 500);
+    }
+
+    // 페이지 로드 시 초기 메시지
+    window.onload = function() {
+      log('호이스팅 예제 페이지가 로드되었습니다.');
+      log('위의 "예제 코드 실행하기" 버튼을 클릭하여 예제를 실행하세요.');
+    };
+  </script>
+</body>
+</html>
+

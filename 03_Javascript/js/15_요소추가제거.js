@@ -20,7 +20,7 @@ document.getElementById("add").addEventListener("click", () => {
 });
 
 document.getElementById("calc").addEventListener("click", () => {
-    let sum = 0;
+    let sum = 0;1
     for(let i = 0; i < container.children.length; i++){
         sum += parseInt(container.children[i].children[0].value);
     }
